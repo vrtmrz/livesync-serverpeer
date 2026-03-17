@@ -1,5 +1,8 @@
 ## P2P Pseudo Peer for Self-hosted LiveSync
 
+> [!NOTE]
+> I believe this feature has now been incorporated into the [Self-hosted LiveSync CLI](https://github.com/vrtmrz/obsidian-livesync/tree/main/src/apps/cli). Please let me know if anything is missing. This repository will be archived shortly.
+
 This repository contains a P2P pseudo peer for self-hosted LiveSync, which is a Obsidian plugin for synchronising notes between devices. The pseudo peer acts as a `stable` node for synchronisation to keep items between devices in the P2P network, allowing users to synchronise their notes without an keep-alive client.
 
 ## Installation
