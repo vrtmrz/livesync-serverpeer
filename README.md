@@ -7,18 +7,55 @@ This repository contains a P2P pseudo peer for self-hosted LiveSync, which is a 
 
 ## Installation
 
-### Prerequisites
+### Docker (Recommended)
 
-- [Deno](https://deno.land/) (v2.2.10 to checked at the time of writing).
-- If you are not on Linux, following will be required:
-  - [Node.js](https://nodejs.org/) (v20.12.2 now).
-  - [npm](https://www.npmjs.com/) (v10.5.0 now).
-
-### How to use
+The easiest way to run the server is using Docker:
 
 1. Clone the repository:
    ```bash
-   git clone http://github.com/vrtmrz/livesync-serverpeer.git --recursive
+   git clone https://github.com/vrtmrz/livesync-serverpeer.git --recursive
+   cd livesync-serverpeer
+   ```
+
+2. Prepare your `.env` file:
+   ```bash
+   cp .env.sample .env
+   vi .env
+   ```
+
+3. Run with Docker:
+   ```bash
+   docker run -d --name livesync-serverpeer \
+     --env-file .env \
+     -p 3000:3000 \
+     --restart unless-stopped \
+     ghcr.io/vrtmrz/livesync-serverpeer:latest
+   ```
+
+   Or build and run locally:
+   ```bash
+   docker build -t livesync-serverpeer .
+   docker run -d --name livesync-serverpeer \
+     --env-file .env \
+     -p 3000:3000 \
+     --restart unless-stopped \
+     livesync-serverpeer
+   ```
+
+### Manual Installation
+
+#### Prerequisites
+
+- [Deno](https://deno.land/) (v2.2.10 or later)
+- If you are not on Linux, following will be required:
+  - [Node.js](https://nodejs.org/) (v20.12.2 or later)
+  - [npm](https://www.npmjs.com/) (v10.5.0 or later)
+
+#### How to use
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/vrtmrz/livesync-serverpeer.git --recursive
    cd livesync-serverpeer
    ```
 2. Prepare your `.env` file:
@@ -28,8 +65,7 @@ This repository contains a P2P pseudo peer for self-hosted LiveSync, which is a 
    ```
 3. Install dependencies:
    ```bash
-   deno task install # You also need to install node and npm dependencies
-   # or deno task install-only-deno
+   deno task install
    ```
 4. Run the server:
    ```bash

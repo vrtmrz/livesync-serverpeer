@@ -4,3 +4,4 @@ node_modules/**
 D__*
 .env
 __sys*
+.history/
